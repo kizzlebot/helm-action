@@ -66,6 +66,6 @@ deploy() {
 }
 
 
-helm lint ${CHART}
 init
+helm lint ${CHART}
 publish
