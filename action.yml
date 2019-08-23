@@ -2,11 +2,24 @@ name: 'Container Action Template'
 description: 'Get started with Container actions'
 author: 'GitHub'
 inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+  chart-name:
+    description: 'Name of helm chart'
+    required: true
+  chart-path:
+    description: 'Path to charts'
+    required: true
+  chart-url:
+    description: 'URL of helm chart repo'
+    required: true
+  bucket-url:
+    description: 'URL to GCP bucket'
+    required: true
+  
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.myInput }}
+    - ${{ inputs.chart-name }}
+    - ${{ inputs.chart-path }}
+    - ${{ inputs.chart-url }}
+    - ${{ inputs.bucket-url }}
